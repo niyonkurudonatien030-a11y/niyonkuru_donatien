@@ -386,4 +386,468 @@
     [data-theme="dark"] .book-section { background: linear-gradient(160deg,#10204F,#1B1456 55%,#0F3B33); }
     [data-theme="dark"] .creative-section { background: linear-gradient(160deg,#3A2A10,#3B1B2E 50%,#251659); }
     .tab[aria-selected="true"] { background: linear-gradient(135deg,var(--forest),var(--blue)); border-color: transparent; color:#fff; }
-    .about-b
+    .about-band { background: linear-gradient(120deg,#1D4ED8,#4F46E5 45%,#7C3AED); color:#fff; }
+    .project-card { border-top: 4px solid var(--blue); }
+    .project-card:nth-child(2) { border-top-color: var(--orange); }
+    .project-card:nth-child(3) { border-top-color: var(--green); }
+    .project-card .status { color: var(--orange); }
+    footer { border-image: var(--rainbow) 1; border-top-width: 3px; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Niyonkuru Donatien home">
+        <span class="brand-mark">ND</span>
+        <span class="brand-name">Niyonkuru Donatien</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#book">The Book</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#creative">Arts & Language</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to night reading mode" title="Night reading mode">☾</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Author · Engineering student · Maker · Rwanda</div>
+          <h1>One life.<br>Many <span>languages.</span></h1>
+          <p class="hero-copy">
+            I am <strong>Niyonkuru Donatien</strong>, the author of
+            <em class="serif">Nkuru Yogeye: The Complete Book of the Man from Bwiyando</em>.
+            My story moves from childhood in Bwiyando and the formation of faith at Nkumba,
+            through art, poetry, music and love, to Electronics and Telecommunication Engineering
+            at the University of Rwanda — College of Science and Technology.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#reader">Read Chapter Excerpts <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#engineering">Explore Engineering & Projects <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero-note">“I want to build technology in Rwanda that values our cultural and environmental context.”</p>
+        </div>
+
+        <div class="hero-art" aria-label="A literary quotation from the author's book">
+          <div class="hero-quote">
+            <div class="quote-mark">“</div>
+            <blockquote class="serif">The pencil is small. The room it opens is not.</blockquote>
+            <small>From the world of Nkuru Yogeye</small>
+          </div>
+          <div class="hero-stamp">WRITTEN<br>IN RWANDA<br>· 2026 ·</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section book-section" id="book">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The autobiographical book</div>
+          <h2 class="serif">A life still being written.</h2>
+          <p><em>Nkuru Yogeye</em> brings a handwritten childhood notebook into conversation with later reflections on faith, work, creativity, engineering and the future.</p>
+        </div>
+
+        <div class="book-grid">
+          <div class="book-stage">
+            <div class="book-cover" role="img" aria-label="CSS mockup of the Nkuru Yogeye book cover">
+              <div class="cover-kicker">The complete book of the Man from Bwiyando</div>
+              <div>
+                <div class="cover-title">Nkuru<br><em>Yogeye</em></div>
+                <div class="cover-subtitle">Stories, ideas and letters from a life still being written</div>
+              </div>
+              <div class="cover-author">Niyonkuru Donatien · First edition, 2026</div>
+            </div>
+            <p class="book-caption">A CSS-rendered cover concept. Replace with the final cover artwork if desired.</p>
+          </div>
+
+          <div class="book-copy">
+            <h3 class="serif">About the book</h3>
+            <p>
+              Part memoir, part notebook of ideas, <em>Nkuru Yogeye</em> follows a boy from
+              Bwiyando through school, the Minor Seminary of Nkumba, Nyamugali and university life
+              in Kigali. It keeps the humour of childhood alongside the difficult parts, without
+              pretending that every memory is neat or every question has an easy answer.
+            </p>
+            <p>
+              The later pages turn from events to meaning: what curiosity taught him, how art and
+              language shape a mind, what engineering might contribute to Rwanda, and what kind of
+              person he hopes to become. Poetry, letters, family rituals, faith, love, debate and
+              technical ambition share the same pages.
+            </p>
+            <div class="book-meta">
+              <span class="pill">Memoir & reflections</span>
+              <span class="pill">First edition · 2026</span>
+              <span class="pill">Written in Rwanda</span>
+              <span class="pill">Seven parts</span>
+            </div>
+
+            <div class="reader" id="reader">
+              <h3 class="serif">Read chapter excerpts</h3>
+              <div class="tab-list" role="tablist" aria-label="Book parts">
+                <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" data-tab="1">I · Roots</button>
+                <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-tab="2">II · Questions</button>
+                <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-tab="3">III · Seminary</button>
+                <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" data-tab="4">IV · Nyamugali</button>
+                <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" data-tab="5">V · Kigali</button>
+                <button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1" data-tab="6">VI · Lessons</button>
+                <button class="tab" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="false" tabindex="-1" data-tab="7">VII · Promises</button>
+              </div>
+
+              <article class="excerpt-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="chapter-ref">Part I · The Hills Where I Began</div>
+                <h4 class="serif">The Boy Who Arrived in Bwiyando</h4>
+                <div class="poem">“Every great journey starts somewhere. Mine started in a village the map had not yet bothered to learn.”</div>
+                <p>On 10 July 2006, at about eleven in the morning, a baby named Niyonkuru Donatien arrived in Bwiyando Village, Nyacina Cell, Gashenyi Sector, Gakenke District, Rwanda. Nobody threw a parade. The hills stayed where they were, the cows kept chewing, and my mother, I am told, was mostly interested in getting some rest.</p>
+                <p>I will say it plainly: Bwiyando is not only where I was born. It is where I grew up, and almost everything I later wrote in my notebook has red soil on its boots.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+                <div class="chapter-ref">Part II · Goats, Pencils and Big Questions</div>
+                <h4 class="serif">The Little Businessman of Bwiyando</h4>
+                <div class="poem">“The first business lesson is rarely taught in a classroom. It begins the day someone pays you less than you expected.”</div>
+                <p>Near the end of 2016, during the holidays, I started selling small things that I found or collected. Looking back, I call it the beginning of my trading career. I gave it a name, RIT-I-SAH, my own playful phrase joining matches and a clock. Every company needs a name before it needs money. I had followed that rule by accident.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+                <div class="chapter-ref">Part III · The Seminary Years</div>
+                <h4 class="serif">Why I Turned Away from Priesthood</h4>
+                <div class="poem">“A sign on the door says what a house wants to be. The way it treats the sick says what it is.”</div>
+                <p>I went to the seminary because the road to it looked like the road to something important. Priesthood, as I understood it then, meant service, discipline, belonging and a life turned toward God. I admired it. I also watched it closely, and watching closely is a habit that does not come with an off switch.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+                <div class="chapter-ref">Part IV · Nyamugali: Many Things at Once</div>
+                <h4 class="serif">The Broken Piano and the New Face of Mathematics</h4>
+                <div class="poem">“A broken piano taught me more physics than a working one ever could, mostly about my own ignorance.”</div>
+                <p>ES Nyamugali had a piano. I loved music, and I loved being near that piano, and then it was destroyed. I tried to repair it, and I could not. That sentence is short because the feeling was long.</p>
+                <p>A piano is a meeting point of art and engineering. When it fails, a musician sees a lost instrument while a stubborn student sees a question: what failed, how could I find out, and what would I need to know to bring it back? When I later chose Electronics and Telecommunication Engineering, the piano was somewhere in the room.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+                <div class="chapter-ref">Part V · Kigali, Code and the Present</div>
+                <h4 class="serif">Code, Debate and the Door to IEEE</h4>
+                <div class="poem">“The classroom teaches one language at a time. Curiosity keeps learning the rest.”</div>
+                <p>As I settled into university, I kept looking for ways to connect my interests. I began to learn C and C++, then Java and Python, and later I met Assembly. I wanted to understand how software and computers work, and how that knowledge could connect with the projects I imagined.</p>
+                <p>Debate stayed part of my life. I became a judge, which meant I could keep developing the public-speaking and critical-thinking skills I had practised before university.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+                <div class="chapter-ref">Part VI · What the Stories Taught Me</div>
+                <h4 class="serif">Technology for Rwanda, Rooted in Place</h4>
+                <div class="poem">“Africa can borrow the world’s tools and still design its own furniture.”</div>
+                <p>My long-term ambition is to build technology in Rwanda that values our cultural and environmental context. I do not want innovation to mean importing a design without asking whether it fits the people, climate, languages, resources, and daily realities around it.</p>
+                <p>A farmer should not have to become a software engineer to operate a useful irrigation system. A device should respect the work it is meant to support.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-7" role="tabpanel" aria-labelledby="tab-7" hidden>
+                <div class="chapter-ref">Part VII · Letters, Rules and Promises</div>
+                <h4 class="serif">Keep Becoming</h4>
+                <div class="poem">“Plans are maps. You are the person walking.”</div>
+                <p>You do not need to solve your whole life today. You need to make the next honest decision.</p>
+                <p>If you have energy, do the work. If you are confused, ask a clearer question. If you are wrong, correct it. If you are tired, rest. If a project is too large, reduce its scope.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <div style="margin-top:18px">
+                <button class="btn btn-primary" type="button" data-open-modal="manuscriptModal">Request the full manuscript <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Engineering & innovation</div>
+          <h2 class="serif">Ideas should meet the physical world.</h2>
+          <p>My engineering interests connect practical electronics, embedded systems and locally useful technology. The projects below are presented as work in progress; details and links can be updated as prototypes mature.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">☀</div>
+            <h3>Bobera Smart</h3>
+            <p>A solar-powered, soil-moisture-driven irrigation concept for farmers, with drip and sprinkler operation and an SMS-triggered manual mode. Developed in the UR-CST incubation context.</p>
+            <div class="status">Agricultural technology · In development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">ϟ</div>
+            <h3>2027 Multipurpose Power Supply</h3>
+            <p>A hardware power-system project connected to future-energy and LCOY-related initiatives, exploring a versatile power-processing approach.</p>
+            <div class="status">Power electronics · Project development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">⌘</div>
+            <h3>Low-level programming & circuit design</h3>
+            <p>Learning and building across C, assembly, microcontrollers, analog and power electronics, circuit analysis and simulation with tools such as Multisim.</p>
+            <div class="status">Embedded systems · Technical practice</div>
+          </article>
+        </div>
+
+        <p class="project-footnote">
+          Code, notes and schematics:
+          <!-- EDIT HERE: Replace the placeholder with the public GitHub profile or repository URL. -->
+          <a href="https://github.com/niyonkurudonatien030-a11y" target="_blank" rel="noopener noreferrer">github.com/niyonkurudonatien030-a11y</a>.
+          Only link repositories that are public and ready to share.
+        </p>
+      </div>
+    </section>
+
+    <section class="section creative-section" id="creative">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Beyond the laboratory</div>
+          <h2 class="serif">The creative mind is part of the engineer.</h2>
+          <p>Art, sound and language are not side notes. They are ways of observing, communicating and imagining what does not yet exist.</p>
+        </div>
+        <div class="creative-grid">
+          <article class="creative-card">
+            <h3>Choir & music</h3>
+            <p>A singer with a long-standing interest in choral music and voice, including experience in seminary choir life and leadership. Music also fuels curiosity about audio electronics, synthesis and digital instruments.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Painting & poetry</h3>
+            <p>Drawing, visual art and reflective writing run through the memoir. Poetry offers a language for memory, faith, affection, doubt and the ordinary details that make a life recognisable.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Kinyarwanda & scientific language</h3>
+            <p>A long-term effort to translate scientific and engineering ideas into Kinyarwanda, develop learning materials and coin vocabulary rooted in African languages and authentic local linguistic patterns.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container leadership-layout">
+        <div class="leadership-intro">
+          <div class="eyebrow">Leadership & community</div>
+          <h2 class="serif">Learning in public. Building with others.</h2>
+          <p>Community work has taught me to communicate ideas, support other learners and connect technical ambition with public purpose.</p>
+        </div>
+        <div class="lead-list">
+          <div class="lead-item">
+            <strong>IEEE</strong>
+            <p>Student involvement through the UR Student Branch, IEEE Region 8 Student Publicity Academy, and interests spanning the Industrial Electronics Society and Electron Devices Society.</p>
+          </div>
+          <div class="lead-item">
+            <strong>iDebate Rwanda</strong>
+            <p>Volunteer and debate-coaching experience, including Dreamers Academy Camp and participation as a finalist in the Money Makeover Challenge.</p>
+          </div>
+          <div class="lead-item">
+            <strong>Ajowa Leadership Programme</strong>
+            <p>Leadership development and community engagement. Add a programme description, cohort and dates here when you are ready to publish them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-band">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">A note on the work</div>
+          <h2>Rooted in place.<br>Open to possibility.</h2>
+          <p>Born in Bwiyando, Gakenke District, Donatien studies Electronics and Telecommunication Engineering at the University of Rwanda, College of Science and Technology. He writes, draws, sings, debates and keeps looking for ways to make useful technology more attentive to the people and places it serves.</p>
+        </div>
+        <div class="about-quote">
+          “A circuit may pass its electrical tests and still fail the people who use it. The real test is whether it works in the world it was designed for.”
+          <div style="font:700 .68rem var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#DDA184;margin-top:18px">— A principle from the book</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-row">
+        <div>
+          <div class="eyebrow">Correspondence & collaboration</div>
+          <h2 class="serif">Let us build something meaningful.</h2>
+          <p class="muted" style="margin:8px 0 0">For book enquiries, engineering collaboration, speaking and community work.</p>
+        </div>
+        <div class="contact-actions">
+          <!-- EDIT HERE: Replace the email address below with the public contact email you want to use. -->
+          <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Website%20enquiry">Email Donatien</a>
+          <!-- EDIT HERE: Replace the phone number with international format, digits only (Rwanda: 250...). -->
+          <a class="btn btn-secondary" href="https://wa.me/250793291014" target="_blank" rel="noopener noreferrer">WhatsApp / Phone</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Niyonkuru Donatien · Written and designed in Rwanda.</p>
+      <div class="footer-links">
+        <button type="button" data-open-modal="privacyModal">Privacy notice</button>
+        <a href="#top" style="font-size:.73rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Manuscript request modal -->
+  <div class="modal-backdrop" id="manuscriptModal" role="dialog" aria-modal="true" aria-labelledby="manuscriptTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Book enquiries</div>
+      <h2 id="manuscriptTitle">Request the full manuscript</h2>
+      <p>For a reading copy, permission to quote, review requests or other book enquiries, send a short message by email. Availability and sharing terms can be discussed directly.</p>
+      <div class="modal-actions">
+        <!-- EDIT HERE: Keep this email in sync with the contact email above. -->
+        <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Nkuru%20Yogeye%20manuscript%20request">Write an email</a>
+        <button class="btn btn-secondary" type="button" data-close-modal>Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy notice modal -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Privacy notice</div>
+      <h2 id="privacyTitle">A quiet, static website</h2>
+      <p>This website is designed as a static personal portfolio. It does not intentionally set cookies, run advertising trackers, create visitor accounts or collect visitor data through a website database. The theme preference is kept only in this browser's local storage, if available.</p>
+      <p>If you choose to email or message Donatien, your communication is handled by the email or messaging provider you use. Hosting providers such as GitHub Pages or Netlify may process technical server logs under their own terms. This notice is a plain-language summary, not a legal certification; review your hosting configuration and applicable Rwanda data-protection requirements before publication.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Night Reading Mode. The site still works if localStorage is unavailable.
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    try {
+      const savedTheme = localStorage.getItem('donatien-theme');
+      if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+    } catch (error) { /* Storage is optional; ignore unavailable storage. */ }
+
+    function updateThemeButton() {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeToggle.textContent = dark ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to day reading mode' : 'Switch to night reading mode');
+      themeToggle.title = dark ? 'Day reading mode' : 'Night reading mode';
+    }
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem('donatien-theme', dark ? 'light' : 'dark');
+      } catch (error) { /* Theme still changes for this page view. */ }
+      updateThemeButton();
+    });
+
+    // Accessible chapter tabs: click, Enter, Space, or arrow keys.
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activateTab(tab, moveFocus = false) {
+      tabs.forEach(item => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach(panel => {
+        panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+      });
+      if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', event => {
+        let nextIndex = index;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
+
+    // Dialogs
+    const modals = Array.from(document.querySelectorAll('.modal-backdrop'));
+    let lastFocusedElement = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('[data-close-modal]');
+      if (closeButton) closeButton.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(button => {
+      button.addEventListener('click', () => openModal(button.dataset.openModal));
+    });
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+      button.addEventListener('click', () => closeModal(button.closest('.modal-backdrop')));
+    });
+    modals.forEach(modal => {
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal(modal);
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const open = modals.find(modal => modal.classList.contains('open'));
+        if (open) closeModal(open);
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
