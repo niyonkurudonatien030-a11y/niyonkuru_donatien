@@ -272,7 +272,7 @@
     .contact-section { padding: 82px 0; }
     .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
     .contact-row h2 { font: 600 clamp(2rem, 4vw, 3rem)/1.1 var(--serif); margin: 8px 0; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-actions { flex-wrap: wrap; display: flex; flex-wrap: wrap; gap: 10px; }
 
     /* Footer + modals */
     footer { border-top: 1px solid var(--line); padding: 24px 0; }
@@ -392,6 +392,15 @@
     .project-card:nth-child(3) { border-top-color: var(--green); }
     .project-card .status { color: var(--orange); }
     footer { border-image: var(--rainbow) 1; border-top-width: 3px; }
+
+    .lit-block { margin-top: 40px; padding: 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--violet); box-shadow: var(--shadow); }
+    .lit-block h3 { margin: 0 0 6px; font-size: 1.3rem; }
+    .lit-block > p { margin: 0 0 20px; color: var(--muted); }
+    .read-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .read-link { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; text-decoration: none; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(124,58,237,.08)); transition: transform .2s, border-color .2s; }
+    .read-link:hover { transform: translateY(-2px); border-color: var(--orange); }
+    .read-link strong { font-weight: 400; color: var(--terra); }
+    .read-link span { font-size: .8rem; color: var(--muted); }
   </style>
 </head>
 
@@ -634,6 +643,18 @@
             <p>A long-term effort to translate scientific and engineering ideas into Kinyarwanda, develop learning materials and coin vocabulary rooted in African languages and authentic local linguistic patterns.</p>
           </article>
         </div>
+        <div class="lit-block">
+          <h3>Poetry, plays &amp; video</h3>
+          <p>Read my Kinyarwanda, English and French writing online, or watch the YouTube channel.</p>
+          <div class="read-list">
+            <a class="read-link" href="https://www.scribd.com/document/920340566/ibisigo-bya-Donatien-Niyonkuru" target="_blank" rel="noopener noreferrer"><strong>Ibisigo bya Donatien Niyonkuru</strong><span>Poems on love, unity and Rwandan identity (Kinyarwanda, English, French)</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/792267334/02-07-24-ibisigo-nd" target="_blank" rel="noopener noreferrer"><strong>Ibisigo n'Imivugo y'Urukundo</strong><span>Kinyarwanda poetry: love, heroism, grief and life advice for youth</span></a>
+            <a class="read-link" href="https://fr.scribd.com/document/911557276/Amayobera-y-Urukundo" target="_blank" rel="noopener noreferrer"><strong>Amayobera y'Urukundo</strong><span>Poetry collection</span></a>
+            <a class="read-link" href="https://ru.scribd.com/document/920339554/06-06-24-Ikinamico-n-donas-kmc-1" target="_blank" rel="noopener noreferrer"><strong>Ikinamico: Ninde Utetse Ijabiro?</strong><span>A play in Kinyarwanda</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/913227700/Aaaaa-Poems" target="_blank" rel="noopener noreferrer"><strong>More poems</strong><span>Collected poems on Scribd</span></a>
+            <a class="read-link" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer"><strong>YouTube: @nkuruyogeye</strong><span>Videos and music</span></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -687,6 +708,10 @@
           <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Website%20enquiry">Email Donatien</a>
           <!-- EDIT HERE: Replace the phone number with international format, digits only (Rwanda: 250...). -->
           <a class="btn btn-secondary" href="https://wa.me/250793291014" target="_blank" rel="noopener noreferrer">WhatsApp / Phone</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn btn-secondary" href="https://x.com/niyonkuru35478" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          <a class="btn btn-secondary" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
       </div>
     </section>
