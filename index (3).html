@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="description" content="The personal website and portfolio of Niyonkuru Donatien — author of Nkuru Yogeye, engineering student, artist and builder from Rwanda.">
+  <title>Niyonkuru Donatien — A Man from Bwiyando</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #FAF8F5;
+      --paper-deep: #F0EBE3;
+      --ink: #1E1E1E;
+      --muted: #68645E;
+      --line: #DED7CD;
+      --terra: #B85D3B;
+      --terra-dark: #98472C;
+      --forest: #2C4A3E;
+      --forest-soft: #E8EEE9;
+      --card: #FFFDF9;
+      --shadow: 0 18px 50px rgba(41, 32, 22, .09);
+      --serif: "Lora", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #171B19;
+      --paper-deep: #202723;
+      --ink: #F2EEE7;
+      --muted: #B8B2A8;
+      --line: #3A433D;
+      --terra: #DB8867;
+      --terra-dark: #F0A184;
+      --forest: #A9C5B3;
+      --forest-soft: #26352D;
+      --card: #202622;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s ease, color .25s ease;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .serif { font-family: var(--serif); }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      color: var(--terra);
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .section { padding: 104px 0; }
+    .section-head { max-width: 700px; margin-bottom: 42px; }
+    .section-head h2 {
+      margin: 10px 0 14px;
+      font: 600 clamp(2rem, 4vw, 3.25rem)/1.12 var(--serif);
+      letter-spacing: -.035em;
+    }
+    .section-head p { color: var(--muted); margin: 0; max-width: 640px; }
+    .muted { color: var(--muted); }
+    .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 74px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { text-decoration: none; display: flex; align-items: center; gap: 11px; }
+    .brand-mark {
+      width: 37px; height: 37px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--forest);
+      color: #fff; font: 600 1rem var(--serif);
+    }
+    .brand-name { font: 600 .98rem var(--serif); letter-spacing: -.02em; }
+    .nav-links { display: flex; align-items: center; gap: 25px; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: .82rem; font-weight: 600;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-actions { display: flex; align-items: center; gap: 9px; }
+    .icon-btn, .menu-btn {
+      border: 1px solid var(--line); background: var(--card); color: var(--ink);
+      width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+      display: grid; place-items: center;
+    }
+    .menu-btn { display: none; border-radius: 11px; font-size: 1.1rem; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 13px 19px; border-radius: 999px; text-decoration: none;
+      font-size: .84rem; font-weight: 700; border: 1px solid transparent;
+      cursor: pointer; transition: transform .2s, background .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--terra); color: #fff; }
+    .btn-primary:hover { background: var(--terra-dark); }
+    .btn-secondary { border-color: var(--line); color: var(--ink); background: var(--card); }
+    .btn-secondary:hover { border-color: var(--terra); }
+    .btn-small { padding: 10px 14px; font-size: .78rem; }
+
+    /* Hero */
+    .hero { padding: 94px 0 86px; overflow: hidden; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.18fr .82fr; align-items: center; gap: 70px;
+    }
+    .hero h1 {
+      font: 600 clamp(3.1rem, 7vw, 6.15rem)/.99 var(--serif);
+      letter-spacing: -.065em; margin: 18px 0 23px; max-width: 750px;
+    }
+    .hero h1 span { color: var(--terra); font-style: italic; }
+    .hero-copy { max-width: 650px; color: var(--muted); font-size: 1.02rem; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+    .hero-note { margin-top: 27px; font: italic .91rem var(--serif); color: var(--muted); }
+    .hero-art { min-height: 420px; display: grid; place-items: center; position: relative; }
+    .hero-art::before {
+      content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%;
+      background: var(--paper-deep); right: 2%; top: 6%;
+    }
+    .hero-quote {
+      position: relative; width: min(100%, 380px); padding: 36px 34px;
+      background: var(--forest); color: #F7F3EA; border-radius: 4px 22px 22px 4px;
+      box-shadow: var(--shadow); transform: rotate(2deg);
+    }
+    .hero-quote::before {
+      content: ""; position: absolute; left: 13px; top: 0; bottom: 0;
+      width: 1px; background: rgba(255,255,255,.2);
+    }
+    .hero-quote .quote-mark { color: #DDA184; font: 4.2rem/.8 var(--serif); }
+    .hero-quote blockquote { margin: 16px 0 24px; font: italic 1.42rem/1.5 var(--serif); }
+    .hero-quote small { color: #D5DED7; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
+    .hero-stamp {
+      position: absolute; bottom: 13px; right: 0; border: 1px solid var(--terra);
+      color: var(--terra); border-radius: 50%; width: 88px; height: 88px;
+      display: grid; place-items: center; text-align: center; font: 600 .68rem/1.3 var(--serif);
+      transform: rotate(-12deg); background: var(--paper);
+    }
+
+    /* Book */
+    .book-section { background: var(--paper-deep); }
+    .book-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 76px; align-items: start; }
+    .book-stage { position: sticky; top: 112px; padding: 24px 0 35px; }
+    .book-cover {
+      width: min(100%, 330px); min-height: 455px; margin: auto; position: relative;
+      padding: 35px 29px 28px; color: #F6EBDD;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.08), transparent 42%),
+        linear-gradient(155deg, #314D40 0%, #20382F 58%, #182A24 100%);
+      box-shadow: 17px 20px 30px rgba(23, 32, 27, .23), inset 5px 0 0 rgba(0,0,0,.18);
+      border-radius: 3px 9px 9px 3px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      overflow: hidden;
+    }
+    .book-cover::before {
+      content: ""; position: absolute; inset: 13px; border: 1px solid rgba(231,199,160,.42);
+      pointer-events: none;
+    }
+    .book-cover::after {
+      content: ""; position: absolute; width: 240px; height: 240px; border-radius: 50%;
+      border: 1px solid rgba(226,177,130,.22); right: -100px; bottom: 40px;
+      box-shadow: 0 0 0 16px rgba(226,177,130,.035), 0 0 0 34px rgba(226,177,130,.025);
+    }
+    .cover-kicker, .cover-author, .cover-title, .cover-subtitle { position: relative; z-index: 1; }
+    .cover-kicker { text-transform: uppercase; letter-spacing: .18em; font-size: .57rem; color: #D5B99A; }
+    .cover-title { font: 600 2.75rem/.98 var(--serif); letter-spacing: -.06em; margin: 40px 0 15px; }
+    .cover-title em { color: #DDA184; font-weight: 400; }
+    .cover-subtitle { max-width: 230px; color: #E0D5C7; font: italic .88rem/1.5 var(--serif); }
+    .cover-author { border-top: 1px solid rgba(231,199,160,.35); padding-top: 16px; font-size: .66rem; letter-spacing: .15em; text-transform: uppercase; }
+    .book-caption { text-align: center; color: var(--muted); font-size: .77rem; margin-top: 23px; }
+    .book-copy h3 { font: 600 1.65rem/1.2 var(--serif); margin: 0 0 13px; }
+    .book-copy > p { color: var(--muted); margin: 0 0 18px; }
+    .book-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 23px 0 30px; }
+    .pill {
+      border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px;
+      color: var(--muted); font-size: .7rem; font-weight: 600;
+    }
+
+    /* Reader */
+    .reader { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 28px; }
+    .reader h3 { margin-bottom: 18px; }
+    .tab-list {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 17px;
+    }
+    .tab {
+      border: 1px solid var(--line); background: var(--card); color: var(--muted);
+      border-radius: 999px; padding: 9px 13px; font-size: .72rem; font-weight: 700;
+      cursor: pointer;
+    }
+    .tab[aria-selected="true"] { background: var(--forest); border-color: var(--forest); color: #fff; }
+    .excerpt-panel {
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 25px 25px 22px; min-height: 250px;
+    }
+    .excerpt-panel h4 { font: 600 1.2rem var(--serif); margin: 0 0 7px; }
+    .excerpt-panel .chapter-ref { color: var(--terra); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .excerpt-panel p { color: var(--muted); font: .91rem/1.85 var(--serif); }
+    .poem {
+      border-left: 2px solid var(--terra); padding: 5px 0 5px 18px; margin: 20px 0;
+      color: var(--ink); font: italic 1rem/1.9 var(--serif); white-space: pre-line;
+    }
+    .paste-note {
+      background: var(--forest-soft); color: var(--forest); padding: 13px 15px;
+      border-radius: 9px; font-size: .75rem; margin-top: 17px;
+    }
+    .paste-note code { font-size: .72rem; }
+
+    /* Engineering */
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 25px; min-height: 275px; display: flex; flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .project-icon {
+      width: 43px; height: 43px; display: grid; place-items: center;
+      background: var(--forest-soft); color: var(--forest); border-radius: 12px; font-size: 1.2rem;
+    }
+    .project-card h3 { font: 600 1.25rem var(--serif); margin: 20px 0 9px; }
+    .project-card p { color: var(--muted); font-size: .85rem; margin: 0 0 20px; }
+    .project-card .status { color: var(--terra); font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-top: auto; }
+    .project-footnote { margin-top: 24px; color: var(--muted); font-size: .8rem; }
+
+    /* Creative */
+    .creative-section { background: var(--paper-deep); }
+    .creative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .creative-card { padding: 26px 24px; border-top: 2px solid var(--terra); background: var(--card); }
+    .creative-card h3 { font: 600 1.25rem var(--serif); margin: 0 0 10px; }
+    .creative-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    /* Leadership */
+    .leadership-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 65px; }
+    .leadership-intro h2 { font: 600 clamp(2rem, 4vw, 3rem)/1.1 var(--serif); margin: 10px 0 18px; letter-spacing: -.04em; }
+    .leadership-intro p { color: var(--muted); }
+    .lead-list { border-top: 1px solid var(--line); }
+    .lead-item { display: grid; grid-template-columns: 145px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .lead-item strong { font: 600 1.05rem var(--serif); }
+    .lead-item p { margin: 0; color: var(--muted); font-size: .85rem; }
+
+    /* About / contact */
+    .about-band { background: var(--forest); color: #F7F3EA; padding: 76px 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: center; }
+    .about-band .eyebrow { color: #DDA184; }
+    .about-band h2 { font: 600 clamp(2.1rem, 4vw, 3.3rem)/1.1 var(--serif); margin: 12px 0; letter-spacing: -.04em; }
+    .about-band p { color: #D5DED7; }
+    .about-quote { border-left: 1px solid rgba(255,255,255,.35); padding-left: 30px; font: italic 1.4rem/1.6 var(--serif); }
+    .contact-section { padding: 82px 0; }
+    .contact-row { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact-row h2 { font: 600 clamp(2rem, 4vw, 3rem)/1.1 var(--serif); margin: 8px 0; }
+    .contact-actions { flex-wrap: wrap; display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* Footer + modals */
+    footer { border-top: 1px solid var(--line); padding: 24px 0; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-row p { color: var(--muted); font-size: .73rem; margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 17px; }
+    .footer-links button {
+      border: 0; background: none; padding: 0; color: var(--muted);
+      text-decoration: underline; text-underline-offset: 3px; font-size: .73rem; cursor: pointer;
+    }
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 50; background: rgba(10, 15, 12, .64);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      width: min(100%, 480px); background: var(--card); color: var(--ink);
+      border: 1px solid var(--line); border-radius: 18px; padding: 28px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.25); position: relative;
+    }
+    .modal h2 { font: 600 1.7rem var(--serif); margin: 0 35px 12px 0; }
+    .modal p { color: var(--muted); font-size: .88rem; }
+    .modal-close {
+      position: absolute; right: 17px; top: 17px; width: 35px; height: 35px;
+      border-radius: 50%; border: 1px solid var(--line); background: var(--paper);
+      color: var(--ink); cursor: pointer;
+    }
+    .modal-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: .75rem; }
+      .hero-grid { gap: 35px; }
+      .book-grid { gap: 42px; }
+      .project-grid, .creative-grid { grid-template-columns: repeat(2, 1fr); }
+      .leadership-layout { gap: 35px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .section { padding: 73px 0; }
+      .nav { min-height: 66px; }
+      .menu-btn { display: grid; }
+      .nav-links {
+        display: none; position: absolute; top: 66px; left: 0; right: 0;
+        background: var(--paper); border-bottom: 1px solid var(--line);
+        padding: 15px 20px 20px; flex-direction: column; align-items: stretch; gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 3px; font-size: .88rem; border-bottom: 1px solid var(--line); }
+      .hero { padding: 65px 0 55px; }
+      .hero-grid, .book-grid, .leadership-layout, .about-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 24px; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.8rem); }
+      .hero-art { min-height: 310px; }
+      .hero-art::before { width: 275px; height: 275px; right: 8%; }
+      .hero-quote { width: min(88%, 350px); padding: 27px; }
+      .hero-quote blockquote { font-size: 1.2rem; }
+      .hero-stamp { right: 2%; bottom: 0; width: 72px; height: 72px; }
+      .book-stage { position: static; padding-top: 0; }
+      .book-cover { min-height: 410px; width: min(82%, 310px); }
+      .project-grid, .creative-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 0; }
+      .lead-item { grid-template-columns: 1fr; gap: 5px; }
+      .about-grid { gap: 25px; }
+      .about-quote { font-size: 1.15rem; padding-left: 18px; }
+      .contact-row, .footer-row { align-items: flex-start; flex-direction: column; }
+      .contact-actions { width: 100%; }
+      .contact-actions .btn { flex: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+
+    /* ===== Colour & type theme: blue, indigo, green, orange, yellow, violet ===== */
+    :root {
+      --paper:#F6F8FF; --paper-deep:#EEF0FF; --ink:#16163A; --muted:#55587A; --line:#D9DDF5;
+      --terra:#4F46E5; --terra-dark:#3730A3; --forest:#0B8A5F; --forest-soft:#E3F7EE; --card:#FFFFFF;
+      --blue:#2563EB; --indigo:#4F46E5; --green:#10B981; --orange:#F97316; --yellow:#FACC15; --violet:#7C3AED;
+      --rainbow:linear-gradient(90deg,#2563EB,#4F46E5,#7C3AED,#F97316,#FACC15,#10B981);
+      --shadow:0 18px 50px rgba(79,70,229,.16);
+      --serif:"Arial Rounded MT Bold","Arial Rounded MT","Nunito","Varela Round",Arial,sans-serif;
+      --sans:"Arial Rounded MT Bold","Arial Rounded MT","Nunito","Varela Round",Arial,sans-serif;
+    }
+    [data-theme="dark"] {
+      --paper:#0E1030; --paper-deep:#171A45; --ink:#F1F2FF; --muted:#B7BAE6; --line:#2D3270;
+      --terra:#8B93FF; --terra-dark:#A5ABFF; --forest:#5EE0A8; --forest-soft:#12392E; --card:#181B4A;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+    }
+    body, h1, h2, h3, h4, button, input, textarea { font-weight: 400; }
+    h1, h2, h3, h4, .eyebrow, .btn, .tab, .brand-name { font-weight: 400; letter-spacing: -.01em; }
+    .eyebrow, .btn { letter-spacing: .08em; }
+    body { background: linear-gradient(180deg,#F6F8FF 0%,#FFFFFF 40%,#F3F0FF 100%) fixed; }
+    [data-theme="dark"] body { background: linear-gradient(180deg,#0E1030,#151847 55%,#1A1250) fixed; }
+    .site-header { border-bottom: 3px solid; border-image: var(--rainbow) 1; }
+    .brand-mark { background: linear-gradient(135deg,var(--blue),var(--green)); }
+    .hero { background:
+      radial-gradient(520px 320px at 85% 10%, rgba(250,204,21,.35), transparent 70%),
+      radial-gradient(560px 380px at 8% 0%, rgba(37,99,235,.22), transparent 70%),
+      radial-gradient(520px 360px at 60% 100%, rgba(124,58,237,.20), transparent 70%); }
+    .hero h1 span { font-style: normal; background: linear-gradient(90deg,var(--violet),var(--blue),var(--green));
+      -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+    .hero-art::before { background: linear-gradient(135deg,rgba(249,115,22,.25),rgba(250,204,21,.35)); }
+    .hero-quote { background: linear-gradient(145deg,#4F46E5,#7C3AED 60%,#2563EB); color:#fff; }
+    .btn-primary { background: linear-gradient(135deg,var(--indigo),var(--violet)); color:#fff; }
+    .btn-primary:hover { background: linear-gradient(135deg,var(--blue),var(--indigo)); }
+    .btn-secondary:hover { border-color: var(--orange); }
+    .nav-links a:hover { color: var(--orange); }
+    .book-section { background: linear-gradient(160deg,#E6F0FF,#EEE9FF 55%,#E3F8EE); }
+    .creative-section { background: linear-gradient(160deg,#FFF7D6,#FFE9DA 50%,#EFE9FF); }
+    [data-theme="dark"] .book-section { background: linear-gradient(160deg,#10204F,#1B1456 55%,#0F3B33); }
+    [data-theme="dark"] .creative-section { background: linear-gradient(160deg,#3A2A10,#3B1B2E 50%,#251659); }
+    .tab[aria-selected="true"] { background: linear-gradient(135deg,var(--forest),var(--blue)); border-color: transparent; color:#fff; }
+    .about-band { background: linear-gradient(120deg,#1D4ED8,#4F46E5 45%,#7C3AED); color:#fff; }
+    .project-card { border-top: 4px solid var(--blue); }
+    .project-card:nth-child(2) { border-top-color: var(--orange); }
+    .project-card:nth-child(3) { border-top-color: var(--green); }
+    .project-card .status { color: var(--orange); }
+    footer { border-image: var(--rainbow) 1; border-top-width: 3px; }
+
+    .lit-block { margin-top: 40px; padding: 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--violet); box-shadow: var(--shadow); }
+    .lit-block h3 { margin: 0 0 6px; font-size: 1.3rem; }
+    .lit-block > p { margin: 0 0 20px; color: var(--muted); }
+    .read-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .read-link { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; text-decoration: none; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(124,58,237,.08)); transition: transform .2s, border-color .2s; }
+    .read-link:hover { transform: translateY(-2px); border-color: var(--orange); }
+    .read-link strong { font-weight: 400; color: var(--terra); }
+    .read-link span { font-size: .8rem; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Niyonkuru Donatien home">
+        <span class="brand-mark">ND</span>
+        <span class="brand-name">Niyonkuru Donatien</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#book">The Book</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#creative">Arts & Language</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to night reading mode" title="Night reading mode">☾</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Author · Engineering student · Maker · Rwanda</div>
+          <h1>One life.<br>Many <span>languages.</span></h1>
+          <p class="hero-copy">
+            I am <strong>Niyonkuru Donatien</strong>, the author of
+            <em class="serif">Nkuru Yogeye: The Complete Book of the Man from Bwiyando</em>.
+            My story moves from childhood in Bwiyando and the formation of faith at Nkumba,
+            through art, poetry, music and love, to Electronics and Telecommunication Engineering
+            at the University of Rwanda — College of Science and Technology.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#reader">Read Chapter Excerpts <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#engineering">Explore Engineering & Projects <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero-note">“I want to build technology in Rwanda that values our cultural and environmental context.”</p>
+        </div>
+
+        <div class="hero-art" aria-label="A literary quotation from the author's book">
+          <div class="hero-quote">
+            <div class="quote-mark">“</div>
+            <blockquote class="serif">The pencil is small. The room it opens is not.</blockquote>
+            <small>From the world of Nkuru Yogeye</small>
+          </div>
+          <div class="hero-stamp">WRITTEN<br>IN RWANDA<br>· 2026 ·</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="section book-section" id="book">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The autobiographical book</div>
+          <h2 class="serif">A life still being written.</h2>
+          <p><em>Nkuru Yogeye</em> brings a handwritten childhood notebook into conversation with later reflections on faith, work, creativity, engineering and the future.</p>
+        </div>
+
+        <div class="book-grid">
+          <div class="book-stage">
+            <div class="book-cover" role="img" aria-label="CSS mockup of the Nkuru Yogeye book cover">
+              <div class="cover-kicker">The complete book of the Man from Bwiyando</div>
+              <div>
+                <div class="cover-title">Nkuru<br><em>Yogeye</em></div>
+                <div class="cover-subtitle">Stories, ideas and letters from a life still being written</div>
+              </div>
+              <div class="cover-author">Niyonkuru Donatien · First edition, 2026</div>
+            </div>
+            <p class="book-caption">A CSS-rendered cover concept. Replace with the final cover artwork if desired.</p>
+          </div>
+
+          <div class="book-copy">
+            <h3 class="serif">About the book</h3>
+            <p>
+              Part memoir, part notebook of ideas, <em>Nkuru Yogeye</em> follows a boy from
+              Bwiyando through school, the Minor Seminary of Nkumba, Nyamugali and university life
+              in Kigali. It keeps the humour of childhood alongside the difficult parts, without
+              pretending that every memory is neat or every question has an easy answer.
+            </p>
+            <p>
+              The later pages turn from events to meaning: what curiosity taught him, how art and
+              language shape a mind, what engineering might contribute to Rwanda, and what kind of
+              person he hopes to become. Poetry, letters, family rituals, faith, love, debate and
+              technical ambition share the same pages.
+            </p>
+            <div class="book-meta">
+              <span class="pill">Memoir & reflections</span>
+              <span class="pill">First edition · 2026</span>
+              <span class="pill">Written in Rwanda</span>
+              <span class="pill">Seven parts</span>
+            </div>
+
+            <div class="reader" id="reader">
+              <h3 class="serif">Read chapter excerpts</h3>
+              <div class="tab-list" role="tablist" aria-label="Book parts">
+                <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" data-tab="1">I · Roots</button>
+                <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-tab="2">II · Questions</button>
+                <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-tab="3">III · Seminary</button>
+                <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" data-tab="4">IV · Nyamugali</button>
+                <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" data-tab="5">V · Kigali</button>
+                <button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1" data-tab="6">VI · Lessons</button>
+                <button class="tab" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="false" tabindex="-1" data-tab="7">VII · Promises</button>
+              </div>
+
+              <article class="excerpt-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="chapter-ref">Part I · The Hills Where I Began</div>
+                <h4 class="serif">The Boy Who Arrived in Bwiyando</h4>
+                <div class="poem">“Every great journey starts somewhere. Mine started in a village the map had not yet bothered to learn.”</div>
+                <p>On 10 July 2006, at about eleven in the morning, a baby named Niyonkuru Donatien arrived in Bwiyando Village, Nyacina Cell, Gashenyi Sector, Gakenke District, Rwanda. Nobody threw a parade. The hills stayed where they were, the cows kept chewing, and my mother, I am told, was mostly interested in getting some rest.</p>
+                <p>I will say it plainly: Bwiyando is not only where I was born. It is where I grew up, and almost everything I later wrote in my notebook has red soil on its boots.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+                <div class="chapter-ref">Part II · Goats, Pencils and Big Questions</div>
+                <h4 class="serif">The Little Businessman of Bwiyando</h4>
+                <div class="poem">“The first business lesson is rarely taught in a classroom. It begins the day someone pays you less than you expected.”</div>
+                <p>Near the end of 2016, during the holidays, I started selling small things that I found or collected. Looking back, I call it the beginning of my trading career. I gave it a name, RIT-I-SAH, my own playful phrase joining matches and a clock. Every company needs a name before it needs money. I had followed that rule by accident.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+                <div class="chapter-ref">Part III · The Seminary Years</div>
+                <h4 class="serif">Why I Turned Away from Priesthood</h4>
+                <div class="poem">“A sign on the door says what a house wants to be. The way it treats the sick says what it is.”</div>
+                <p>I went to the seminary because the road to it looked like the road to something important. Priesthood, as I understood it then, meant service, discipline, belonging and a life turned toward God. I admired it. I also watched it closely, and watching closely is a habit that does not come with an off switch.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+                <div class="chapter-ref">Part IV · Nyamugali: Many Things at Once</div>
+                <h4 class="serif">The Broken Piano and the New Face of Mathematics</h4>
+                <div class="poem">“A broken piano taught me more physics than a working one ever could, mostly about my own ignorance.”</div>
+                <p>ES Nyamugali had a piano. I loved music, and I loved being near that piano, and then it was destroyed. I tried to repair it, and I could not. That sentence is short because the feeling was long.</p>
+                <p>A piano is a meeting point of art and engineering. When it fails, a musician sees a lost instrument while a stubborn student sees a question: what failed, how could I find out, and what would I need to know to bring it back? When I later chose Electronics and Telecommunication Engineering, the piano was somewhere in the room.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+                <div class="chapter-ref">Part V · Kigali, Code and the Present</div>
+                <h4 class="serif">Code, Debate and the Door to IEEE</h4>
+                <div class="poem">“The classroom teaches one language at a time. Curiosity keeps learning the rest.”</div>
+                <p>As I settled into university, I kept looking for ways to connect my interests. I began to learn C and C++, then Java and Python, and later I met Assembly. I wanted to understand how software and computers work, and how that knowledge could connect with the projects I imagined.</p>
+                <p>Debate stayed part of my life. I became a judge, which meant I could keep developing the public-speaking and critical-thinking skills I had practised before university.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+                <div class="chapter-ref">Part VI · What the Stories Taught Me</div>
+                <h4 class="serif">Technology for Rwanda, Rooted in Place</h4>
+                <div class="poem">“Africa can borrow the world’s tools and still design its own furniture.”</div>
+                <p>My long-term ambition is to build technology in Rwanda that values our cultural and environmental context. I do not want innovation to mean importing a design without asking whether it fits the people, climate, languages, resources, and daily realities around it.</p>
+                <p>A farmer should not have to become a software engineer to operate a useful irrigation system. A device should respect the work it is meant to support.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-7" role="tabpanel" aria-labelledby="tab-7" hidden>
+                <div class="chapter-ref">Part VII · Letters, Rules and Promises</div>
+                <h4 class="serif">Keep Becoming</h4>
+                <div class="poem">“Plans are maps. You are the person walking.”</div>
+                <p>You do not need to solve your whole life today. You need to make the next honest decision.</p>
+                <p>If you have energy, do the work. If you are confused, ask a clearer question. If you are wrong, correct it. If you are tired, rest. If a project is too large, reduce its scope.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <div style="margin-top:18px">
+                <button class="btn btn-primary" type="button" data-open-modal="manuscriptModal">Request the full manuscript <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Engineering & innovation</div>
+          <h2 class="serif">Ideas should meet the physical world.</h2>
+          <p>My engineering interests connect practical electronics, embedded systems and locally useful technology. The projects below are presented as work in progress; details and links can be updated as prototypes mature.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">☀</div>
+            <h3>Bobera Smart</h3>
+            <p>A solar-powered, soil-moisture-driven irrigation concept for farmers, with drip and sprinkler operation and an SMS-triggered manual mode. Developed in the UR-CST incubation context.</p>
+            <div class="status">Agricultural technology · In development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">ϟ</div>
+            <h3>2027 Multipurpose Power Supply</h3>
+            <p>A hardware power-system project connected to future-energy and LCOY-related initiatives, exploring a versatile power-processing approach.</p>
+            <div class="status">Power electronics · Project development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">⌘</div>
+            <h3>Low-level programming & circuit design</h3>
+            <p>Learning and building across C, assembly, microcontrollers, analog and power electronics, circuit analysis and simulation with tools such as Multisim.</p>
+            <div class="status">Embedded systems · Technical practice</div>
+          </article>
+        </div>
+
+        <p class="project-footnote">
+          Code, notes and schematics:
+          <!-- EDIT HERE: Replace the placeholder with the public GitHub profile or repository URL. -->
+          <a href="https://github.com/niyonkurudonatien030-a11y" target="_blank" rel="noopener noreferrer">github.com/niyonkurudonatien030-a11y</a>.
+          Only link repositories that are public and ready to share.
+        </p>
+      </div>
+    </section>
+
+    <section class="section creative-section" id="creative">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Beyond the laboratory</div>
+          <h2 class="serif">The creative mind is part of the engineer.</h2>
+          <p>Art, sound and language are not side notes. They are ways of observing, communicating and imagining what does not yet exist.</p>
+        </div>
+        <div class="creative-grid">
+          <article class="creative-card">
+            <h3>Choir & music</h3>
+            <p>A singer with a long-standing interest in choral music and voice, including experience in seminary choir life and leadership. Music also fuels curiosity about audio electronics, synthesis and digital instruments.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Painting & poetry</h3>
+            <p>Drawing, visual art and reflective writing run through the memoir. Poetry offers a language for memory, faith, affection, doubt and the ordinary details that make a life recognisable.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Kinyarwanda & scientific language</h3>
+            <p>A long-term effort to translate scientific and engineering ideas into Kinyarwanda, develop learning materials and coin vocabulary rooted in African languages and authentic local linguistic patterns.</p>
+          </article>
+        </div>
+        <div class="lit-block">
+          <h3>Poetry, plays &amp; video</h3>
+          <p>Read my Kinyarwanda, English and French writing online, or watch the YouTube channel.</p>
+          <div class="read-list">
+            <a class="read-link" href="https://www.scribd.com/document/920340566/ibisigo-bya-Donatien-Niyonkuru" target="_blank" rel="noopener noreferrer"><strong>Ibisigo bya Donatien Niyonkuru</strong><span>Poems on love, unity and Rwandan identity (Kinyarwanda, English, French)</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/792267334/02-07-24-ibisigo-nd" target="_blank" rel="noopener noreferrer"><strong>Ibisigo n'Imivugo y'Urukundo</strong><span>Kinyarwanda poetry: love, heroism, grief and life advice for youth</span></a>
+            <a class="read-link" href="https://fr.scribd.com/document/911557276/Amayobera-y-Urukundo" target="_blank" rel="noopener noreferrer"><strong>Amayobera y'Urukundo</strong><span>Poetry collection</span></a>
+            <a class="read-link" href="https://ru.scribd.com/document/920339554/06-06-24-Ikinamico-n-donas-kmc-1" target="_blank" rel="noopener noreferrer"><strong>Ikinamico: Ninde Utetse Ijabiro?</strong><span>A play in Kinyarwanda</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/913227700/Aaaaa-Poems" target="_blank" rel="noopener noreferrer"><strong>More poems</strong><span>Collected poems on Scribd</span></a>
+            <a class="read-link" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer"><strong>YouTube: @nkuruyogeye</strong><span>Videos and music</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container leadership-layout">
+        <div class="leadership-intro">
+          <div class="eyebrow">Leadership & community</div>
+          <h2 class="serif">Learning in public. Building with others.</h2>
+          <p>Community work has taught me to communicate ideas, support other learners and connect technical ambition with public purpose.</p>
+        </div>
+        <div class="lead-list">
+          <div class="lead-item">
+            <strong>IEEE</strong>
+            <p>Student involvement through the UR Student Branch, IEEE Region 8 Student Publicity Academy, and interests spanning the Industrial Electronics Society and Electron Devices Society.</p>
+          </div>
+          <div class="lead-item">
+            <strong>iDebate Rwanda</strong>
+            <p>Volunteer and debate-coaching experience, including Dreamers Academy Camp and participation as a finalist in the Money Makeover Challenge.</p>
+          </div>
+          <div class="lead-item">
+            <strong>Ajowa Leadership Programme</strong>
+            <p>Leadership development and community engagement. Add a programme description, cohort and dates here when you are ready to publish them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-band">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">A note on the work</div>
+          <h2>Rooted in place.<br>Open to possibility.</h2>
+          <p>Born in Bwiyando, Gakenke District, Donatien studies Electronics and Telecommunication Engineering at the University of Rwanda, College of Science and Technology. He writes, draws, sings, debates and keeps looking for ways to make useful technology more attentive to the people and places it serves.</p>
+        </div>
+        <div class="about-quote">
+          “A circuit may pass its electrical tests and still fail the people who use it. The real test is whether it works in the world it was designed for.”
+          <div style="font:700 .68rem var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#DDA184;margin-top:18px">— A principle from the book</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-row">
+        <div>
+          <div class="eyebrow">Correspondence & collaboration</div>
+          <h2 class="serif">Let us build something meaningful.</h2>
+          <p class="muted" style="margin:8px 0 0">For book enquiries, engineering collaboration, speaking and community work.</p>
+        </div>
+        <div class="contact-actions">
+          <!-- EDIT HERE: Replace the email address below with the public contact email you want to use. -->
+          <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Website%20enquiry">Email Donatien</a>
+          <!-- EDIT HERE: Replace the phone number with international format, digits only (Rwanda: 250...). -->
+          <a class="btn btn-secondary" href="https://wa.me/250793291014" target="_blank" rel="noopener noreferrer">WhatsApp / Phone</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn btn-secondary" href="https://x.com/niyonkuru35478" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          <a class="btn btn-secondary" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Niyonkuru Donatien · Written and designed in Rwanda.</p>
+      <div class="footer-links">
+        <button type="button" data-open-modal="privacyModal">Privacy notice</button>
+        <a href="#top" style="font-size:.73rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Manuscript request modal -->
+  <div class="modal-backdrop" id="manuscriptModal" role="dialog" aria-modal="true" aria-labelledby="manuscriptTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Book enquiries</div>
+      <h2 id="manuscriptTitle">Request the full manuscript</h2>
+      <p>For a reading copy, permission to quote, review requests or other book enquiries, send a short message by email. Availability and sharing terms can be discussed directly.</p>
+      <div class="modal-actions">
+        <!-- EDIT HERE: Keep this email in sync with the contact email above. -->
+        <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Nkuru%20Yogeye%20manuscript%20request">Write an email</a>
+        <button class="btn btn-secondary" type="button" data-close-modal>Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy notice modal -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Privacy notice</div>
+      <h2 id="privacyTitle">A quiet, static website</h2>
+      <p>This website is designed as a static personal portfolio. It does not intentionally set cookies, run advertising trackers, create visitor accounts or collect visitor data through a website database. The theme preference is kept only in this browser's local storage, if available.</p>
+      <p>If you choose to email or message Donatien, your communication is handled by the email or messaging provider you use. Hosting providers such as GitHub Pages or Netlify may process technical server logs under their own terms. This notice is a plain-language summary, not a legal certification; review your hosting configuration and applicable Rwanda data-protection requirements before publication.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Night Reading Mode. The site still works if localStorage is unavailable.
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    try {
+      const savedTheme = localStorage.getItem('donatien-theme');
+      if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+    } catch (error) { /* Storage is optional; ignore unavailable storage. */ }
+
+    function updateThemeButton() {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeToggle.textContent = dark ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to day reading mode' : 'Switch to night reading mode');
+      themeToggle.title = dark ? 'Day reading mode' : 'Night reading mode';
+    }
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem('donatien-theme', dark ? 'light' : 'dark');
+      } catch (error) { /* Theme still changes for this page view. */ }
+      updateThemeButton();
+    });
+
+    // Accessible chapter tabs: click, Enter, Space, or arrow keys.
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activateTab(tab, moveFocus = false) {
+      tabs.forEach(item => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach(panel => {
+        panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+      });
+      if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', event => {
+        let nextIndex = index;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
+
+    // Dialogs
+    const modals = Array.from(document.querySelectorAll('.modal-backdrop'));
+    let lastFocusedElement = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('[data-close-modal]');
+      if (closeButton) closeButton.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(button => {
+      button.addEventListener('click', () => openModal(button.dataset.openModal));
+    });
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+      button.addEventListener('click', () => closeModal(button.closest('.modal-backdrop')));
+    });
+    modals.forEach(modal => {
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal(modal);
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const open = modals.find(modal => modal.classList.contains('open'));
+        if (open) closeModal(open);
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
