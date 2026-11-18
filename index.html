@@ -386,4 +386,670 @@
     .creative-section { background: linear-gradient(160deg,#FFF7D6,#FFE9DA 50%,#EFE9FF); }
     [data-theme="dark"] .book-section { background: linear-gradient(160deg,#10204F,#1B1456 55%,#0F3B33); }
     [data-theme="dark"] .creative-section { background: linear-gradient(160deg,#3A2A10,#3B1B2E 50%,#251659); }
-    .tab[aria-selected="true"] { background: linear-
+    .tab[aria-selected="true"] { background: linear-gradient(135deg,var(--forest),var(--blue)); border-color: transparent; color:#fff; }
+    .about-band { background: linear-gradient(120deg,#1D4ED8,#4F46E5 45%,#7C3AED); color:#fff; }
+    .project-card { border-top: 4px solid var(--blue); }
+    .project-card:nth-child(2) { border-top-color: var(--orange); }
+    .project-card:nth-child(3) { border-top-color: var(--green); }
+    .project-card .status { color: var(--orange); }
+    footer { border-image: var(--rainbow) 1; border-top-width: 3px; }
+
+    .lit-block { margin-top: 40px; padding: 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--violet); box-shadow: var(--shadow); }
+    .lit-block h3 { margin: 0 0 6px; font-size: 1.3rem; }
+    .lit-block > p { margin: 0 0 20px; color: var(--muted); }
+    .read-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .read-link { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; text-decoration: none; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(124,58,237,.08)); transition: transform .2s, border-color .2s; }
+    .read-link:hover { transform: translateY(-2px); border-color: var(--orange); }
+    .read-link strong { font-weight: 400; color: var(--terra); }
+    .read-link span { font-size: .8rem; color: var(--muted); }
+  /* ===== Added: profile, articles, downloads, join, owner tools ===== */
+.owner-only{display:none!important}.owner .owner-only{display:revert!important}.owner .owner-only.flex{display:flex!important}
+.avatar{border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;display:grid;place-items:center;overflow:hidden}
+.brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.profile-card{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--green);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.profile-card .avatar{width:170px;height:170px;font-size:3.4rem;border:5px solid var(--card);box-shadow:0 0 0 3px var(--violet)}
+.profile-card h2{margin:6px 0;font:400 2rem var(--serif)}.profile-card p{color:var(--muted);margin:0 0 14px}
+.stack{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:26px;border-top:4px solid var(--orange)}
+.panel h3{margin:0 0 12px;font:400 1.2rem var(--serif)}
+input,textarea,select{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:10px}
+textarea{min-height:120px;resize:vertical}label{font-size:.75rem;color:var(--muted)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.art{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.art>img.cover{width:100%;height:200px;object-fit:cover}
+.art-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}.art h3{margin:0;font:400 1.25rem var(--serif)}
+.art .meta{font-size:.7rem;color:var(--muted)}.art .txt{color:var(--muted);font-size:.88rem;white-space:pre-line}
+.art .thumbs{display:flex;gap:6px;flex-wrap:wrap}.art .thumbs img{width:64px;height:64px;object-fit:cover;border-radius:10px;cursor:zoom-in}
+.actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.act{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.74rem;cursor:pointer}
+.act.on{background:var(--indigo);color:#fff;border-color:transparent}.act:hover{border-color:var(--orange)}
+.dl-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.dl{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.dl strong{font:400 1.1rem var(--serif)}.dl p{margin:0;color:var(--muted);font-size:.83rem}
+.join-box{background:linear-gradient(120deg,#1D4ED8,#4F46E5 45%,#7C3AED);color:#fff;border-radius:var(--radius);padding:34px}
+.join-box h2{font:400 2rem var(--serif);margin:6px 0}.join-box p{color:#E3E5FF}.join-box label{color:#E3E5FF}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:999px;font-size:.82rem;opacity:0;transition:.3s;z-index:90;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--rainbow);z-index:99}
+#lightbox img{max-width:92vw;max-height:88vh;border-radius:12px}
+@media(max-width:700px){.profile-card{grid-template-columns:1fr;text-align:center;justify-items:center}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Niyonkuru Donatien home">
+        <span class="brand-mark">ND</span>
+        <span class="brand-name">Niyonkuru Donatien</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#book">The Book</a>
+        <a href="#articles">Articles</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#creative">Arts & Language</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#join">Subscribe</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to night reading mode" title="Night reading mode">☾</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Author · Engineering student · Maker · Rwanda</div>
+          <h1>One life.<br>Many <span>languages.</span></h1>
+          <p class="hero-copy">
+            I am <strong>Niyonkuru Donatien</strong>, the author of
+            <em class="serif">Nkuru Yogeye: The Complete Book of the Man from Bwiyando</em>.
+            My story moves from childhood in Bwiyando and the formation of faith at Nkumba,
+            through art, poetry, music and love, to Electronics and Telecommunication Engineering
+            at the University of Rwanda — College of Science and Technology.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#reader">Read Chapter Excerpts <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#engineering">Explore Engineering & Projects <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero-note">“I want to build technology in Rwanda that values our cultural and environmental context.”</p>
+        </div>
+
+        <div class="hero-art" aria-label="A literary quotation from the author's book">
+          <div class="hero-quote">
+            <div class="quote-mark">“</div>
+            <blockquote class="serif">The pencil is small. The room it opens is not.</blockquote>
+            <small>From the world of Nkuru Yogeye</small>
+          </div>
+          <div class="hero-stamp">WRITTEN<br>IN RWANDA<br>· 2026 ·</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+<section class="section" id="profile"><div class="container"><div class="profile-card">
+  <div class="avatar" id="profileAvatar">ND</div>
+  <div><div class="eyebrow">The person behind the pages</div><h2>Niyonkuru Donatien</h2>
+    <p>Author · ETE student at UR-CST · Poet · Builder from Bwiyando, Rwanda.</p>
+    <div class="stack"><a class="btn btn-primary btn-small" href="#join">Subscribe</a><a class="btn btn-secondary btn-small" href="#articles">Read articles</a>
+    <label class="btn btn-secondary btn-small owner-only" style="cursor:pointer">📷 Change profile picture<input type="file" id="profileFile" accept="image/*" hidden></label></div></div>
+</div></div></section>
+
+<section class="section creative-section" id="articles"><div class="container">
+  <div class="section-head"><div class="eyebrow">Articles & stories</div><h2 class="serif">Words with pictures.</h2><p>Essays, notes and photo stories. Like, save and share what you enjoy.</p></div>
+  <form class="panel owner-only" id="articleForm"><h3>✍ Post a new article</h3>
+    <input id="aTitle" placeholder="Title" required maxlength="120">
+    <div class="row2"><input id="aCat" placeholder="Category (e.g. Poetry, Engineering)"><input id="aAuthor" placeholder="Author" value="Niyonkuru Donatien"></div>
+    <textarea id="aText" placeholder="Write your article. Leave an empty line between paragraphs." required></textarea>
+    <label>Pictures (first one becomes the cover — you can choose several)</label><input type="file" id="aImgs" accept="image/*" multiple>
+    <button class="btn btn-primary" type="submit">Publish article</button></form>
+  <div class="stack" style="margin-bottom:18px"><input id="artSearch" placeholder="Search articles…" style="max-width:280px;margin:0"><button class="act" id="savedFilter" type="button">🔖 Saved (0)</button></div>
+  <div class="art-grid" id="artGrid"></div>
+</div></section>
+
+<section class="section" id="downloads"><div class="container">
+  <div class="section-head"><div class="eyebrow">Library</div><h2 class="serif">Download the books.</h2><p>Files hosted on Google Drive. One tap to download.</p></div>
+  <form class="panel owner-only" id="dlForm"><h3>📚 Add a Google Drive download</h3>
+    <div class="row2"><input id="dTitle" placeholder="Book / file title" required><input id="dLink" placeholder="Paste Google Drive link only" required></div>
+    <input id="dDesc" placeholder="Short description (optional)">
+    <label>In Drive: Share → “Anyone with the link” → Viewer, then copy the link here.</label><br>
+    <button class="btn btn-primary" type="submit" style="margin-top:8px">Add download</button></form>
+  <div class="dl-list" id="dlList"></div>
+</div></section>
+
+<section class="section" id="join"><div class="container"><div class="join-box">
+  <div class="eyebrow" style="color:#FFD58A">Community</div><h2>Subscribe & stay close.</h2><p>Get new articles, book releases and updates. No spam.</p>
+  <form id="subForm" name="subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="subscribe"><p hidden><label>Leave empty <input name="bot-field"></label></p><div class="row2"><input id="sName" name="name" placeholder="Your name" required><input id="sEmail" name="email" type="email" placeholder="Email" required></div>
+    <div class="row2"><input id="sCountry" name="country" placeholder="Country (optional)"><select id="sInterest" name="interest"><option>Articles</option><option>Poetry</option><option>Engineering</option><option>Book news</option></select></div>
+    <button class="btn btn-primary" type="submit" style="background:#F97316">Subscribe</button></form>
+  <p style="font-size:.75rem;margin:12px 0 0">By subscribing you agree to be emailed. Unsubscribe anytime by replying “stop”.</p>
+  <div class="owner-only stack" style="margin-top:14px"><span id="subCount"></span><button class="act" id="expSubs" type="button">Export subscribers (CSV)</button></div>
+</div></div></section>
+<div class="modal-backdrop" id="lightbox"><img alt=""></div><div class="toast" id="toast"></div><div id="progress"></div>
+
+
+    <section class="section book-section" id="book">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The autobiographical book</div>
+          <h2 class="serif">A life still being written.</h2>
+          <p><em>Nkuru Yogeye</em> brings a handwritten childhood notebook into conversation with later reflections on faith, work, creativity, engineering and the future.</p>
+        </div>
+
+        <div class="book-grid">
+          <div class="book-stage">
+            <div class="book-cover" role="img" aria-label="CSS mockup of the Nkuru Yogeye book cover">
+              <div class="cover-kicker">The complete book of the Man from Bwiyando</div>
+              <div>
+                <div class="cover-title">Nkuru<br><em>Yogeye</em></div>
+                <div class="cover-subtitle">Stories, ideas and letters from a life still being written</div>
+              </div>
+              <div class="cover-author">Niyonkuru Donatien · First edition, 2026</div>
+            </div>
+            <p class="book-caption">A CSS-rendered cover concept. Replace with the final cover artwork if desired.</p>
+          </div>
+
+          <div class="book-copy">
+            <h3 class="serif">About the book</h3>
+            <p>
+              Part memoir, part notebook of ideas, <em>Nkuru Yogeye</em> follows a boy from
+              Bwiyando through school, the Minor Seminary of Nkumba, Nyamugali and university life
+              in Kigali. It keeps the humour of childhood alongside the difficult parts, without
+              pretending that every memory is neat or every question has an easy answer.
+            </p>
+            <p>
+              The later pages turn from events to meaning: what curiosity taught him, how art and
+              language shape a mind, what engineering might contribute to Rwanda, and what kind of
+              person he hopes to become. Poetry, letters, family rituals, faith, love, debate and
+              technical ambition share the same pages.
+            </p>
+            <div class="book-meta">
+              <span class="pill">Memoir & reflections</span>
+              <span class="pill">First edition · 2026</span>
+              <span class="pill">Written in Rwanda</span>
+              <span class="pill">Seven parts</span>
+            </div>
+
+            <div class="reader" id="reader">
+              <h3 class="serif">Read chapter excerpts</h3>
+              <div class="tab-list" role="tablist" aria-label="Book parts">
+                <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0" data-tab="1">I · Roots</button>
+                <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-tab="2">II · Questions</button>
+                <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-tab="3">III · Seminary</button>
+                <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" data-tab="4">IV · Nyamugali</button>
+                <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" data-tab="5">V · Kigali</button>
+                <button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1" data-tab="6">VI · Lessons</button>
+                <button class="tab" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="false" tabindex="-1" data-tab="7">VII · Promises</button>
+              </div>
+
+              <article class="excerpt-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="chapter-ref">Part I · The Hills Where I Began</div>
+                <h4 class="serif">The Boy Who Arrived in Bwiyando</h4>
+                <div class="poem">“Every great journey starts somewhere. Mine started in a village the map had not yet bothered to learn.”</div>
+                <p>On 10 July 2006, at about eleven in the morning, a baby named Niyonkuru Donatien arrived in Bwiyando Village, Nyacina Cell, Gashenyi Sector, Gakenke District, Rwanda. Nobody threw a parade. The hills stayed where they were, the cows kept chewing, and my mother, I am told, was mostly interested in getting some rest.</p>
+                <p>I will say it plainly: Bwiyando is not only where I was born. It is where I grew up, and almost everything I later wrote in my notebook has red soil on its boots.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+                <div class="chapter-ref">Part II · Goats, Pencils and Big Questions</div>
+                <h4 class="serif">The Little Businessman of Bwiyando</h4>
+                <div class="poem">“The first business lesson is rarely taught in a classroom. It begins the day someone pays you less than you expected.”</div>
+                <p>Near the end of 2016, during the holidays, I started selling small things that I found or collected. Looking back, I call it the beginning of my trading career. I gave it a name, RIT-I-SAH, my own playful phrase joining matches and a clock. Every company needs a name before it needs money. I had followed that rule by accident.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+                <div class="chapter-ref">Part III · The Seminary Years</div>
+                <h4 class="serif">Why I Turned Away from Priesthood</h4>
+                <div class="poem">“A sign on the door says what a house wants to be. The way it treats the sick says what it is.”</div>
+                <p>I went to the seminary because the road to it looked like the road to something important. Priesthood, as I understood it then, meant service, discipline, belonging and a life turned toward God. I admired it. I also watched it closely, and watching closely is a habit that does not come with an off switch.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+                <div class="chapter-ref">Part IV · Nyamugali: Many Things at Once</div>
+                <h4 class="serif">The Broken Piano and the New Face of Mathematics</h4>
+                <div class="poem">“A broken piano taught me more physics than a working one ever could, mostly about my own ignorance.”</div>
+                <p>ES Nyamugali had a piano. I loved music, and I loved being near that piano, and then it was destroyed. I tried to repair it, and I could not. That sentence is short because the feeling was long.</p>
+                <p>A piano is a meeting point of art and engineering. When it fails, a musician sees a lost instrument while a stubborn student sees a question: what failed, how could I find out, and what would I need to know to bring it back? When I later chose Electronics and Telecommunication Engineering, the piano was somewhere in the room.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+                <div class="chapter-ref">Part V · Kigali, Code and the Present</div>
+                <h4 class="serif">Code, Debate and the Door to IEEE</h4>
+                <div class="poem">“The classroom teaches one language at a time. Curiosity keeps learning the rest.”</div>
+                <p>As I settled into university, I kept looking for ways to connect my interests. I began to learn C and C++, then Java and Python, and later I met Assembly. I wanted to understand how software and computers work, and how that knowledge could connect with the projects I imagined.</p>
+                <p>Debate stayed part of my life. I became a judge, which meant I could keep developing the public-speaking and critical-thinking skills I had practised before university.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+                <div class="chapter-ref">Part VI · What the Stories Taught Me</div>
+                <h4 class="serif">Technology for Rwanda, Rooted in Place</h4>
+                <div class="poem">“Africa can borrow the world’s tools and still design its own furniture.”</div>
+                <p>My long-term ambition is to build technology in Rwanda that values our cultural and environmental context. I do not want innovation to mean importing a design without asking whether it fits the people, climate, languages, resources, and daily realities around it.</p>
+                <p>A farmer should not have to become a software engineer to operate a useful irrigation system. A device should respect the work it is meant to support.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <article class="excerpt-panel" id="panel-7" role="tabpanel" aria-labelledby="tab-7" hidden>
+                <div class="chapter-ref">Part VII · Letters, Rules and Promises</div>
+                <h4 class="serif">Keep Becoming</h4>
+                <div class="poem">“Plans are maps. You are the person walking.”</div>
+                <p>You do not need to solve your whole life today. You need to make the next honest decision.</p>
+                <p>If you have energy, do the work. If you are confused, ask a clearer question. If you are wrong, correct it. If you are tired, rest. If a project is too large, reduce its scope.</p>
+                <!-- EDIT HERE: Swap in a different excerpt from the manuscript at any time. -->
+              </article>
+
+              <div style="margin-top:18px">
+                <button class="btn btn-primary" type="button" data-open-modal="manuscriptModal">Request the full manuscript <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Engineering & innovation</div>
+          <h2 class="serif">Ideas should meet the physical world.</h2>
+          <p>My engineering interests connect practical electronics, embedded systems and locally useful technology. The projects below are presented as work in progress; details and links can be updated as prototypes mature.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">☀</div>
+            <h3>Bobera Smart</h3>
+            <p>A solar-powered, soil-moisture-driven irrigation concept for farmers, with drip and sprinkler operation and an SMS-triggered manual mode. Developed in the UR-CST incubation context.</p>
+            <div class="status">Agricultural technology · In development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">ϟ</div>
+            <h3>2027 Multipurpose Power Supply</h3>
+            <p>A hardware power-system project connected to future-energy and LCOY-related initiatives, exploring a versatile power-processing approach.</p>
+            <div class="status">Power electronics · Project development</div>
+          </article>
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">⌘</div>
+            <h3>Low-level programming & circuit design</h3>
+            <p>Learning and building across C, assembly, microcontrollers, analog and power electronics, circuit analysis and simulation with tools such as Multisim.</p>
+            <div class="status">Embedded systems · Technical practice</div>
+          </article>
+        </div>
+
+        <p class="project-footnote">
+          Code, notes and schematics:
+          <!-- EDIT HERE: Replace the placeholder with the public GitHub profile or repository URL. -->
+          <a href="https://github.com/niyonkurudonatien030-a11y" target="_blank" rel="noopener noreferrer">github.com/niyonkurudonatien030-a11y</a>.
+          Only link repositories that are public and ready to share.
+        </p>
+      </div>
+    </section>
+
+    <section class="section creative-section" id="creative">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Beyond the laboratory</div>
+          <h2 class="serif">The creative mind is part of the engineer.</h2>
+          <p>Art, sound and language are not side notes. They are ways of observing, communicating and imagining what does not yet exist.</p>
+        </div>
+        <div class="creative-grid">
+          <article class="creative-card">
+            <h3>Choir & music</h3>
+            <p>A singer with a long-standing interest in choral music and voice, including experience in seminary choir life and leadership. Music also fuels curiosity about audio electronics, synthesis and digital instruments.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Painting & poetry</h3>
+            <p>Drawing, visual art and reflective writing run through the memoir. Poetry offers a language for memory, faith, affection, doubt and the ordinary details that make a life recognisable.</p>
+          </article>
+          <article class="creative-card">
+            <h3>Kinyarwanda & scientific language</h3>
+            <p>A long-term effort to translate scientific and engineering ideas into Kinyarwanda, develop learning materials and coin vocabulary rooted in African languages and authentic local linguistic patterns.</p>
+          </article>
+        </div>
+        <div class="lit-block">
+          <h3>Poetry, plays &amp; video</h3>
+          <p>Read my Kinyarwanda, English and French writing online, or watch the YouTube channel.</p>
+          <div class="read-list">
+            <a class="read-link" href="https://www.scribd.com/document/920340566/ibisigo-bya-Donatien-Niyonkuru" target="_blank" rel="noopener noreferrer"><strong>Ibisigo bya Donatien Niyonkuru</strong><span>Poems on love, unity and Rwandan identity (Kinyarwanda, English, French)</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/792267334/02-07-24-ibisigo-nd" target="_blank" rel="noopener noreferrer"><strong>Ibisigo n'Imivugo y'Urukundo</strong><span>Kinyarwanda poetry: love, heroism, grief and life advice for youth</span></a>
+            <a class="read-link" href="https://fr.scribd.com/document/911557276/Amayobera-y-Urukundo" target="_blank" rel="noopener noreferrer"><strong>Amayobera y'Urukundo</strong><span>Poetry collection</span></a>
+            <a class="read-link" href="https://ru.scribd.com/document/920339554/06-06-24-Ikinamico-n-donas-kmc-1" target="_blank" rel="noopener noreferrer"><strong>Ikinamico: Ninde Utetse Ijabiro?</strong><span>A play in Kinyarwanda</span></a>
+            <a class="read-link" href="https://www.scribd.com/document/913227700/Aaaaa-Poems" target="_blank" rel="noopener noreferrer"><strong>More poems</strong><span>Collected poems on Scribd</span></a>
+            <a class="read-link" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer"><strong>YouTube: @nkuruyogeye</strong><span>Videos and music</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container leadership-layout">
+        <div class="leadership-intro">
+          <div class="eyebrow">Leadership & community</div>
+          <h2 class="serif">Learning in public. Building with others.</h2>
+          <p>Community work has taught me to communicate ideas, support other learners and connect technical ambition with public purpose.</p>
+        </div>
+        <div class="lead-list">
+          <div class="lead-item">
+            <strong>IEEE</strong>
+            <p>Student involvement through the UR Student Branch, IEEE Region 8 Student Publicity Academy, and interests spanning the Industrial Electronics Society and Electron Devices Society.</p>
+          </div>
+          <div class="lead-item">
+            <strong>iDebate Rwanda</strong>
+            <p>Volunteer and debate-coaching experience, including Dreamers Academy Camp and participation as a finalist in the Money Makeover Challenge.</p>
+          </div>
+          <div class="lead-item">
+            <strong>Ajowa Leadership Programme</strong>
+            <p>Leadership development and community engagement. Add a programme description, cohort and dates here when you are ready to publish them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-band">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">A note on the work</div>
+          <h2>Rooted in place.<br>Open to possibility.</h2>
+          <p>Born in Bwiyando, Gakenke District, Donatien studies Electronics and Telecommunication Engineering at the University of Rwanda, College of Science and Technology. He writes, draws, sings, debates and keeps looking for ways to make useful technology more attentive to the people and places it serves.</p>
+        </div>
+        <div class="about-quote">
+          “A circuit may pass its electrical tests and still fail the people who use it. The real test is whether it works in the world it was designed for.”
+          <div style="font:700 .68rem var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#DDA184;margin-top:18px">— A principle from the book</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-row">
+        <div>
+          <div class="eyebrow">Correspondence & collaboration</div>
+          <h2 class="serif">Let us build something meaningful.</h2>
+          <p class="muted" style="margin:8px 0 0">For book enquiries, engineering collaboration, speaking and community work.</p>
+        </div>
+        <div class="contact-actions">
+          <!-- EDIT HERE: Replace the email address below with the public contact email you want to use. -->
+          <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Website%20enquiry">Email Donatien</a>
+          <!-- EDIT HERE: Replace the phone number with international format, digits only (Rwanda: 250...). -->
+          <a class="btn btn-secondary" href="https://wa.me/250793291014" target="_blank" rel="noopener noreferrer">WhatsApp / Phone</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/nkuruyogeye07" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn btn-secondary" href="https://x.com/niyonkuru35478" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          <a class="btn btn-secondary" href="https://youtube.com/@nkuruyogeye" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Niyonkuru Donatien · Written and designed in Rwanda.</p>
+      <div class="footer-links">
+        <button type="button" data-open-modal="privacyModal">Privacy notice</button>
+        <button type="button" id="ownerBtn">Owner</button>
+        <button type="button" id="exportAll" class="owner-only">Export site data</button>
+        <a href="#top" style="font-size:.73rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Manuscript request modal -->
+  <div class="modal-backdrop" id="manuscriptModal" role="dialog" aria-modal="true" aria-labelledby="manuscriptTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Book enquiries</div>
+      <h2 id="manuscriptTitle">Request the full manuscript</h2>
+      <p>For a reading copy, permission to quote, review requests or other book enquiries, send a short message by email. Availability and sharing terms can be discussed directly.</p>
+      <div class="modal-actions">
+        <!-- EDIT HERE: Keep this email in sync with the contact email above. -->
+        <a class="btn btn-primary" href="mailto:nkuruyogeye@gmail.com?subject=Nkuru%20Yogeye%20manuscript%20request">Write an email</a>
+        <button class="btn btn-secondary" type="button" data-close-modal>Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy notice modal -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" aria-label="Close dialog" data-close-modal>×</button>
+      <div class="eyebrow">Privacy notice</div>
+      <h2 id="privacyTitle">A quiet, static website</h2>
+      <p>This website is designed as a static personal portfolio. It does not intentionally set cookies, run advertising trackers, create visitor accounts or collect visitor data through a website database. The theme preference is kept only in this browser's local storage, if available.</p>
+      <p>If you choose to email or message Donatien, your communication is handled by the email or messaging provider you use. Hosting providers such as GitHub Pages or Netlify may process technical server logs under their own terms. This notice is a plain-language summary, not a legal certification; review your hosting configuration and applicable Rwanda data-protection requirements before publication.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="siteData">
+{"profile":"","articles":[{"id":"s1","title":"Why I write in Kinyarwanda and English","cat":"Language","author":"Niyonkuru Donatien","date":"18/11/2026","likes":0,"images":[],"text":"Replace this sample with your first real article.\n\nUse Owner mode (footer) to post articles with pictures, then Export site data to publish them for every visitor."}],"downloads":[]}
+</script>
+<script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Night Reading Mode. The site still works if localStorage is unavailable.
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    try {
+      const savedTheme = localStorage.getItem('donatien-theme');
+      if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+    } catch (error) { /* Storage is optional; ignore unavailable storage. */ }
+
+    function updateThemeButton() {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeToggle.textContent = dark ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to day reading mode' : 'Switch to night reading mode');
+      themeToggle.title = dark ? 'Day reading mode' : 'Night reading mode';
+    }
+    updateThemeButton();
+
+    themeToggle.addEventListener('click', () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', 'dark');
+      try {
+        localStorage.setItem('donatien-theme', dark ? 'light' : 'dark');
+      } catch (error) { /* Theme still changes for this page view. */ }
+      updateThemeButton();
+    });
+
+    // Accessible chapter tabs: click, Enter, Space, or arrow keys.
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activateTab(tab, moveFocus = false) {
+      tabs.forEach(item => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach(panel => {
+        panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+      });
+      if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', event => {
+        let nextIndex = index;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
+
+    // Dialogs
+    const modals = Array.from(document.querySelectorAll('.modal-backdrop'));
+    let lastFocusedElement = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('[data-close-modal]');
+      if (closeButton) closeButton.focus();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(button => {
+      button.addEventListener('click', () => openModal(button.dataset.openModal));
+    });
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+      button.addEventListener('click', () => closeModal(button.closest('.modal-backdrop')));
+    });
+    modals.forEach(modal => {
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal(modal);
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const open = modals.find(modal => modal.classList.contains('open'));
+        if (open) closeModal(open);
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+/* ===== Added features ===== */
+// EDIT HERE: owner passcode (client-side convenience only, not real security).
+const OWNER_PASSCODE = 'change-me';
+// EDIT HERE: paste a Google Apps Script / Formspree URL to record subscribers from ALL visitors.
+// Apps Script: new Google Sheet > Extensions > Apps Script:
+//   function doPost(e){SpreadsheetApp.getActiveSheet().appendRow(JSON.parse(e.postData.contents).row);return ContentService.createTextOutput('ok')}
+// Deploy > Web app > Anyone, then paste the /exec URL below.
+const FORM_ENDPOINT = '';
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let DB = {profile:'', articles:[], downloads:[], subs:[], likes:{}, saved:{}, dlCount:{}};
+let seed = {articles:[], downloads:[], profile:''};
+try { seed = JSON.parse($('siteData').textContent); } catch(e) {}
+try { Object.assign(DB, JSON.parse(localStorage.getItem('dn-site')||'{}')); } catch(e) {}
+const save = () => { try { localStorage.setItem('dn-site', JSON.stringify(DB)); } catch(e) { toast('Storage full or blocked — export your data.'); } };
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2400);}
+const allArticles = () => [...DB.articles, ...(seed.articles||[])];
+const allDownloads = () => [...DB.downloads, ...(seed.downloads||[])];
+
+// Owner mode
+function setOwner(on){document.body.classList.toggle('owner',on);try{sessionStorage.setItem('dn-owner',on?'1':'')}catch(e){}}
+try{ if(sessionStorage.getItem('dn-owner')) setOwner(true);}catch(e){}
+$('ownerBtn').onclick=()=>{ if(document.body.classList.contains('owner')){setOwner(false);toast('Owner mode off');return;}
+  if(prompt('Owner passcode')===OWNER_PASSCODE){setOwner(true);toast('Owner mode on');}else toast('Wrong passcode'); };
+$('exportAll').onclick=()=>{const blob=new Blob([JSON.stringify({profile:DB.profile||seed.profile,articles:allArticles(),downloads:allDownloads()},null,1)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='site-data.json';a.click();toast('Paste its content into the siteData block to publish for everyone');};
+
+// Image helper
+const shrink = (file,max=900) => new Promise(res=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{
+  const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;
+  c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.72));};im.src=r.result;};r.readAsDataURL(file);});
+
+// Profile picture
+function paintProfile(){const src=DB.profile||seed.profile;
+  $('profileAvatar').innerHTML=src?`<img src="${esc(src)}" alt="Profile picture of Niyonkuru Donatien" style="width:100%;height:100%;object-fit:cover">`:'ND';
+  document.querySelector('.brand-mark').innerHTML=src?`<img src="${esc(src)}" alt="">`:'ND';}
+$('profileFile').onchange=async e=>{if(!e.target.files[0])return;DB.profile=await shrink(e.target.files[0],500);save();paintProfile();toast('Profile picture updated');};
+
+// Articles
+let onlySaved=false;
+function paintArticles(){const q=$('artSearch').value.toLowerCase();
+  const list=allArticles().filter(a=>(!onlySaved||DB.saved[a.id])&&(a.title+a.text+(a.cat||'')).toLowerCase().includes(q));
+  $('savedFilter').textContent=`🔖 Saved (${Object.keys(DB.saved).filter(k=>DB.saved[k]).length})`;$('savedFilter').classList.toggle('on',onlySaved);
+  $('artGrid').innerHTML=list.length?list.map(a=>{const imgs=a.images||[],liked=DB.likes[a.id],mins=Math.max(1,Math.round(a.text.split(/\s+/).length/200));
+    return `<article class="art" id="a-${esc(a.id)}">${imgs[0]?`<img class="cover" src="${esc(imgs[0])}" alt="">`:''}
+    <div class="art-body"><div class="meta">${esc(a.cat||'Article')} · ${esc(a.date||'')} · ${mins} min read · ${esc(a.author||'')}</div><h3>${esc(a.title)}</h3>
+    ${imgs.length>1?`<div class="thumbs">${imgs.slice(1).map(s=>`<img src="${esc(s)}" alt="" data-zoom>`).join('')}</div>`:''}
+    <details><summary class="muted" style="cursor:pointer">Read article</summary><div class="txt">${esc(a.text)}</div></details>
+    <div class="actions"><button class="act ${liked?'on':''}" data-act="like" data-id="${esc(a.id)}">♥ ${(a.likes||0)+(liked?1:0)}</button>
+    <button class="act ${DB.saved[a.id]?'on':''}" data-act="save" data-id="${esc(a.id)}">🔖 ${DB.saved[a.id]?'Saved':'Save'}</button>
+    <button class="act" data-act="share" data-id="${esc(a.id)}">↗ Share</button>
+    <button class="act owner-only" data-act="del" data-id="${esc(a.id)}">🗑</button></div></div></article>`;}).join(''):'<p class="muted">No articles yet.</p>';}
+$('artGrid').onclick=async e=>{const z=e.target.closest('[data-zoom]');if(z){$('lightbox').querySelector('img').src=z.src;$('lightbox').classList.add('open');return;}
+  const b=e.target.closest('[data-act]');if(!b)return;const id=b.dataset.id,a=allArticles().find(x=>x.id===id);
+  if(b.dataset.act==='like')DB.likes[id]=!DB.likes[id];
+  if(b.dataset.act==='save'){DB.saved[id]=!DB.saved[id];toast(DB.saved[id]?'Saved to your list':'Removed from saved');}
+  if(b.dataset.act==='del'&&confirm('Delete this article?'))DB.articles=DB.articles.filter(x=>x.id!==id);
+  if(b.dataset.act==='share'){const url=location.href.split('#')[0]+'#a-'+id;
+    if(navigator.share){try{await navigator.share({title:a.title,text:a.title,url});}catch(_){}}
+    else{try{await navigator.clipboard.writeText(url);toast('Link copied');}catch(_){prompt('Copy link',url);}}}
+  save();paintArticles();};
+$('lightbox').onclick=()=>$('lightbox').classList.remove('open');
+$('artSearch').oninput=paintArticles;$('savedFilter').onclick=()=>{onlySaved=!onlySaved;paintArticles();};
+$('articleForm').onsubmit=async e=>{e.preventDefault();const imgs=[];for(const f of $('aImgs').files)imgs.push(await shrink(f));
+  DB.articles.unshift({id:'n'+Date.now(),title:$('aTitle').value,cat:$('aCat').value,author:$('aAuthor').value,text:$('aText').value,images:imgs,date:new Date().toLocaleDateString('en-GB'),likes:0});
+  save();e.target.reset();$('aAuthor').value='Niyonkuru Donatien';paintArticles();toast('Article published');};
+
+// Downloads (Google Drive links only)
+function driveId(u){try{const x=new URL(u);if(!/(^|\.)(drive|docs)\.google\.com$/.test(x.hostname))return null;
+  const m=x.pathname.match(/\/d\/([\w-]{10,})/)||x.search.match(/[?&]id=([\w-]{10,})/);return m&&m[1];}catch(e){return null;}}
+function paintDownloads(){const l=allDownloads();$('dlList').innerHTML=l.length?l.map(d=>`<div class="dl"><strong>${esc(d.title)}</strong>${d.desc?`<p>${esc(d.desc)}</p>`:''}
+  <div class="stack"><a class="btn btn-primary btn-small" data-dl="${esc(d.id)}" href="https://drive.google.com/uc?export=download&id=${esc(d.id)}" target="_blank" rel="noopener noreferrer">⬇ Download</a>
+  <a class="btn btn-secondary btn-small" href="https://drive.google.com/file/d/${esc(d.id)}/view" target="_blank" rel="noopener noreferrer">Preview</a>
+  <span class="muted" style="font-size:.7rem">${DB.dlCount[d.id]||0} on this device</span>
+  <button class="act owner-only" data-rm="${esc(d.id)}">🗑</button></div></div>`).join(''):'<p class="muted">No downloads yet.</p>';}
+$('dlList').onclick=e=>{const a=e.target.closest('[data-dl]');if(a){DB.dlCount[a.dataset.dl]=(DB.dlCount[a.dataset.dl]||0)+1;save();setTimeout(paintDownloads,300);}
+  const r=e.target.closest('[data-rm]');if(r&&confirm('Remove this download?')){DB.downloads=DB.downloads.filter(x=>x.id!==r.dataset.rm);save();paintDownloads();}};
+$('dlForm').onsubmit=e=>{e.preventDefault();const id=driveId($('dLink').value.trim());
+  if(!id){toast('Please paste a valid Google Drive file link');return;}
+  DB.downloads.unshift({id,title:$('dTitle').value,desc:$('dDesc').value});save();e.target.reset();paintDownloads();toast('Download added');};
+
+// Subscribers
+const countSubs=()=>$('subCount').textContent=DB.subs.length+' subscriber(s) recorded on this device';
+$('subForm').onsubmit=async e=>{e.preventDefault();const row=[new Date().toISOString(),$('sName').value,$('sEmail').value,$('sCountry').value,$('sInterest').value];
+  if(DB.subs.some(s=>s[2].toLowerCase()===row[2].toLowerCase())){toast('You are already subscribed');return;}
+  DB.subs.push(row);save();countSubs();
+  if(/^https?:/.test(location.protocol)){try{await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'subscribe',name:row[1],email:row[2],country:row[3],interest:row[4]}).toString()});}catch(_){}}
+  if(FORM_ENDPOINT){try{await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({row})});}catch(_){}}
+  e.target.reset();toast('Thank you for subscribing!');};
+$('expSubs').onclick=()=>{const csv='time,name,email,country,interest\n'+DB.subs.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='subscribers.csv';a.click();};
+
+// Reading progress + init
+addEventListener('scroll',()=>{const h=document.documentElement;$('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+paintProfile();paintArticles();paintDownloads();countSubs();
+
+  </script>
+</body>
+</html>
